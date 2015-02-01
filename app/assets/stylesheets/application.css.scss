@@ -1,0 +1,16 @@
+// Using 'Darkly' bootswatch
+//
+// First import darkly variables
+@import "bootswatch/darkly/variables";
+
+// import bootstrap itself
+@import "bootstrap";
+
+// Bootstrap body padding for fixed navbar
+body { padding-top: 60px; }
+
+// import bootswatch style itself
+@import "bootswatch/darkly/bootswatch";
+
+// application styles
+@import "base";
