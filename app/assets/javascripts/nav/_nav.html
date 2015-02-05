@@ -13,7 +13,7 @@
 			<ul class="nav navbar-nav">
 				<li class="dropdown" ng-show="signedIn()">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{user.username}}<span class="caret"></span></a>
-					<ul class="dropdown-menu" role="menu">
+					<ul class="dropdown-menu">
 						<li><a href="#">Your Dashboard</a></li>
 						<li class="divider"></li>
 						<li><a href="#">Books</a></li>
@@ -29,9 +29,9 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#">Search</a></li>
 				<li ng-show="signedIn()"><a href="#">Settings</a></li>
-				<li ng-hide="signedIn()"><a href="#">Register</a></li>
-				<li ng-hide="signedIn()"><a href="#">Login</a></li>
-				<li ng-show="signedIn()"><a href="#">Log Out</a></li>
+				<li ng-hide="signedIn()"><a href="#/register">Register</a></li>
+				<li ng-hide="signedIn()"><a href="#/login">Login</a></li>
+				<li ng-show="signedIn()"><a ng-click="logout()">Log Out</a></li>
 			</ul>
 		</div>
 	</div>
