@@ -7,9 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body ng-app="hobbyhound">
-	<div class="col-md-12 col-md-offset-2">
-		<div ng-include="'nav/_nav.html'"></div>
-		<div ui-view></div>
+	<div class="container">
+		<div class="col-lg-12">
+			<div ng-include="'nav/_nav.html'"></div>
+			<div ui-view></div>
+		</div>
 	</div>
 </body>
 </html>
