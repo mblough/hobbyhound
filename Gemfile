@@ -25,6 +25,8 @@ gem 'angular-rails-templates'
 
 gem 'angular_rails_csrf'
 
+gem 'angular-ui-bootstrap-rails'
+
 gem 'responders'
 
 gem 'devise', '~> 3.4.0'

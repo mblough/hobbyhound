@@ -17,4 +17,12 @@ angular.module('hobbyhound')
 	$scope.$on('devise:logout', function(e, user) {
 		$scope.user = {};
 	});
+
+	$scope.status = {
+		isopen: false
+	};
+
+	$scope.toggled = function(open) {
+
+	};
 }]);

@@ -1,4 +1,4 @@
-angular.module('hobbyhound', ['ui.router', 'templates', 'Devise'])
+angular.module('hobbyhound', ['ui.router', 'templates', 'Devise', 'ui.bootstrap'])
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 	$stateProvider
 		.state('home', {
