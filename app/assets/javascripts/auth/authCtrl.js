@@ -11,4 +11,8 @@ angular.module('hobbyhound')
 			$state.go('home');
 		});
 	};
+
+	$scope.cancel = function() {
+		$state.go('home');
+	};
 }]);
