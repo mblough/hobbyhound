@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
 	def index
 		@user = User.find(params[:user_id])
 		@movies = @user.movies
-		render json: @movies
+		respond_with @movies
 	end
 
 	def create
