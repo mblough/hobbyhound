@@ -10,7 +10,7 @@ class MoviesController < ApplicationController
 	end
 
 	def create
-		respond_with Movie.create(movie_params.merge(user_id: current_user.id))
+		respond_with Movie.create(movie_params.merge(user_id: params[:user_id]))
 	end
 
 	def show
