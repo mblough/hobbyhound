@@ -40,7 +40,7 @@ angular.module('hobbyhound', ['ui.router', 'templates', 'Devise', 'ui.bootstrap'
 			}
 		})
 		.state('createMovie', {
-			url: '/users/{user_id}/movies/create',
+			url: '/movies/create',
 			templateUrl: 'movies/_createMovie.html',
 			controller: 'MovieCtrl'
 		});
