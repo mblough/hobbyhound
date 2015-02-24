@@ -22,12 +22,13 @@
 					</div>
 				</div>
 				<div class="row">
-					<table class="table table-hover">
+					<table class="table table-hover table-striped library-border">
 						<thead class="library-border">
 							<tr>
 								<th>Title</th>
 								<th>Status</th>
 								<th>Rating</th>
+								<th></th> <!-- View comment/review -->
 								<th></th> <!-- Check -->
 								<th></th> <!-- Edit -->
 								<th></th> <!-- Delete -->
@@ -37,16 +38,17 @@
 							<tr ng-repeat="movie in movies | orderBy: 'name'">
 								<td class="col-md-5">{{movie.name}}</td>
 								<td class="col-md-1">
-									<span ng-show="movie.watched" class="glyphicon glyphicon-eye-open"></span>
-									<span ng-hide="movie.watched" class="glyphicon glyphicon-eye-close"></span>
+									<span ng-show="movie.watched" class="glyphicon glyphicon-check"></span>
+									<span ng-hide="movie.watched" class="glyphicon glyphicon-unchecked"></span>
 								</td>
-								<td class="col-md-3">
+								<td class="col-md-2">
 									<rating ng-show="movie.rating > 0" ng-model="movie.rating" max="max" readonly="true" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
 									<span ng-hide="movie.rating > 0"></span>
 								</td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td class="col-md-1"><span ng-show="movie.comment != null && movie.comment != ''" class="glyphicon glyphicon-file"></span></td>
+								<td class="col-md-1"></td>
+								<td class="col-md-1"><button class="btn btn-warning table-btn"><span class="glyphicon glyphicon-edit"></span></button></td>
+								<td class="col-md-1"><button class="btn btn-danger table-btn"><span class="glyphicon glyphicon-trash"></span></button></td>
 							</tr>
 						</tbody> 
 					</table>
