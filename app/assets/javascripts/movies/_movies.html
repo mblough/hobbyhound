@@ -34,6 +34,20 @@
 							</tr>
 						</thead>
 						<tbody>
+							<tr ng-repeat="movie in movies | orderBy: 'name'">
+								<td class="col-md-5">{{movie.name}}</td>
+								<td class="col-md-1">
+									<span ng-show="movie.watched" class="glyphicon glyphicon-eye-open"></span>
+									<span ng-hide="movie.watched" class="glyphicon glyphicon-eye-close"></span>
+								</td>
+								<td class="col-md-3">
+									<rating ng-show="movie.rating > 0" ng-model="movie.rating" max="max" readonly="true" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
+									<span ng-hide="movie.rating > 0"></span>
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
 						</tbody>
 					</table>
 				</div>

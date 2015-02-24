@@ -1,11 +1,11 @@
 angular.module('hobbyhound')
-.controller('MovieCtrl', ['$scope', 'users', 'movies', function($scope, users, movies) {
+.controller('MovieCtrl', ['$scope', 'users', 'movies', '$modal', function($scope, users, movies, modal) {
 	$scope.profile = users.prof;
 
 	$scope.movies = movies.movies
 
 	$scope.rating = 0;
-	$scope.max = 10;
+	$scope.max = 5;
 
 	$scope.hoveringOver = function(value) {
 		$scope.overStar = value;
@@ -19,5 +19,5 @@ angular.module('hobbyhound')
 			rating: $scope.rating,
 			comment: $scope.comment
 		});
-	}
+	};
 }]);
