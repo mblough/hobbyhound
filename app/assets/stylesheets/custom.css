@@ -1,0 +1,17 @@
+.library-header {
+	border-bottom: 1px solid #222222;
+	padding-bottom: 15px;
+}
+
+.library-border {
+	border-bottom: 1px solid #222222;
+}
+
+.form-rating {
+	display: block;
+	padding-top: 10px;
+}
+
+.table-btn {
+	padding: 0px;
+}

@@ -25,6 +25,34 @@ angular.module('hobbyhound', ['ui.router', 'templates', 'Devise', 'ui.bootstrap'
 					$state.go('home');
 				})
 			}]
+		})
+		.state('movies', {
+			url: '/users/{user_id}/movies',
+			templateUrl: 'movies/_movies.html',
+			controller: 'MovieCtrl',
+			resolve: {
+				profilePromise: ['$stateParams', 'users', function($stateParams, users) {
+					return users.get($stateParams.user_id);
+				}],
+				postPromise: ['$stateParams', 'movies', function($stateParams, movies) {
+					return movies.getAll($stateParams.user_id);
+				}]
+			}
+		})
+		.state('createMovie', {
+			url: '/movies/create',
+			templateUrl: 'movies/_createMovie.html',
+			controller: 'MovieCtrl'
+		})
+		.state('editMovie', {
+			url: '/movies/{movie_id}/edit',
+			templateUrl: 'movies/_editMovie.html',
+			controller: 'MovieEditCtrl',
+			resolve: {
+				moviePromise: ['$stateParams', 'movies', function($stateParams, movies) {
+					return movies.getEditMovie($stateParams.movie_id);
+				}]
+			}
 		});
 	$urlRouterProvider.otherwise('home');
 }]);
