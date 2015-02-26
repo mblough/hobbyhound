@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-	before_filter :authenticate_user!, only: [:create, :update, :destroy]
+	before_filter :authenticate_user!, only: [:create, :edit, :update, :destroy]
 
 	respond_to :json
 
@@ -11,6 +11,10 @@ class MoviesController < ApplicationController
 
 	def create
 		respond_with Movie.create(movie_params.merge(user_id: params[:user_id]))
+	end
+
+	def edit
+		respond_with Movie.find(params[:id])
 	end
 
 	def show

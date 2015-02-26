@@ -1,8 +1,8 @@
 angular.module('hobbyhound')
-.controller('MovieCtrl', ['$scope', 'users', 'movies', '$modal', function($scope, users, movies, modal) {
+.controller('MovieCtrl', ['$scope', 'users', 'movies', '$modal', '$location', function($scope, users, movies, $modal, $location) {
 	$scope.profile = users.prof;
 
-	$scope.movies = movies.movies
+	$scope.movies = movies.movies;
 
 	$scope.rating = 0;
 	$scope.max = 5;
@@ -20,4 +20,6 @@ angular.module('hobbyhound')
 			comment: $scope.comment
 		});
 	};
+
+	
 }]);

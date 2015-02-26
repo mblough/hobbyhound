@@ -43,6 +43,16 @@ angular.module('hobbyhound', ['ui.router', 'templates', 'Devise', 'ui.bootstrap'
 			url: '/movies/create',
 			templateUrl: 'movies/_createMovie.html',
 			controller: 'MovieCtrl'
+		})
+		.state('editMovie', {
+			url: '/movies/{movie_id}/edit',
+			templateUrl: 'movies/_editMovie.html',
+			controller: 'MovieEditCtrl',
+			resolve: {
+				moviePromise: ['$stateParams', 'movies', function($stateParams, movies) {
+					return movies.getEditMovie($stateParams.movie_id);
+				}]
+			}
 		});
 	$urlRouterProvider.otherwise('home');
 }]);
