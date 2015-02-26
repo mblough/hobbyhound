@@ -21,5 +21,14 @@ angular.module('hobbyhound')
 		});
 	};
 
-	
+	$scope.deleteMovie = function(movie) {
+		movies.delete(movie).then(function() {
+			for (var i = 0; i < $scope.movies.length; i++) {
+				if ($scope.movies[i].id === movie.id) {
+					$scope.movies.splice(i, 1);
+					break;
+				}
+			}
+		});
+	};
 }]);

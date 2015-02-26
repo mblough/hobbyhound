@@ -34,5 +34,10 @@ angular.module('hobbyhound')
 		});
 	};
 
+	m.delete = function(movie) {
+		return $http.delete('/movies/' + movie.id + '.json').success(function() {
+		}
+	}
+
 	return m;
 }]);
