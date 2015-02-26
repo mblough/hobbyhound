@@ -21,10 +21,10 @@ angular.module('hobbyhound')
 		});
 	};
 
-	$scope.deleteMovie = function(movie) {
-		movies.delete(movie).then(function() {
+	$scope.deleteMovie = function(movieid) {
+		movies.delete(movieid).then(function() {
 			for (var i = 0; i < $scope.movies.length; i++) {
-				if ($scope.movies[i].id === movie.id) {
+				if ($scope.movies[i].id === movieid) {
 					$scope.movies.splice(i, 1);
 					break;
 				}
