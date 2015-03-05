@@ -27,7 +27,8 @@ angular.module('hobbyhound')
 			{ label: 'Genesis', value: 'Genesis' },
 			{ label: 'Saturn', value: 'Saturn' },
 			{ label: 'Dreamcast', value: 'Dreamcast' },
-			{ label: 'Game Gear', value: 'Game Gear' }
+			{ label: 'Game Gear', value: 'Game Gear' },
+			{ label: 'Other', value: 'Other' }
 		];
 	};
 
