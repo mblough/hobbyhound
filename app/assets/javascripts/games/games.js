@@ -3,6 +3,32 @@ angular.module('hobbyhound')
 	var g = {
 		games: [],
 		gameToEdit: {}
+		systemList: [
+			{ label: 'NES', value: 'NES' },
+			{ label: 'SNES', value: 'SNES' },
+			{ label: 'Nintendo 64', value: 'Nintendo 64' },
+			{ label: 'Gamecube', value: 'Gamecube' },
+			{ label: 'Wii', value: 'Wii' },
+			{ label: 'Wii U', value: 'Wii U' },
+			{ label: 'Game Boy', value: 'Game Boy' },
+			{ label: 'GBC', value: 'GBC'}
+			{ label: 'GBA', value: 'GBA' },
+			{ label: 'NDS', value: 'NDS' },
+			{ label: '3DS', value: '3DS' },
+			{ label: 'PlayStation', value: 'PlayStation' },
+			{ label: 'PlayStation 2', value: 'PlayStation 2' },
+			{ label: 'PlayStation 3', value: 'PlayStation 3' },
+			{ label: 'PlayStation 4', value: 'PlayStation 4' },
+			{ label: 'PSP', value: 'PSP' },
+			{ label: 'PSVita', value: 'PSVita' }
+			{ label: 'Xbox', value: 'Xbox' },
+			{ label: 'Xbox 360', value: 'Xbox 360' },
+			{ label: 'Xbox One', value: 'Xbox One' },
+			{ label: 'Genesis', value: 'Genesis' },
+			{ label: 'Saturn', value: 'Saturn' },
+			{ label: 'Dreamcast', value: 'Dreamcast' },
+			{ label: 'Game Gear', value: 'Game Gear' },
+		]
 	};
 
 	Auth.currentUser().then(function(user) {
