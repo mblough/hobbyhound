@@ -1,8 +1,9 @@
 angular.module('hobbyhound')
-.controller('GameCtrl', ['scope', 'users', 'games', '$modal', '$location', function($scope, users, games, $modal, $location) {
+.controller('GameCtrl', ['$scope', 'users', 'games', '$modal', '$location', function($scope, users, games, $modal, $location) {
 	$scope.profile = users.prof;
 
 	$scope.games = games.games;
+	$scope.systemList = games.systemList;
 
 	$scope.rating = 0;
 	$scope.max = 5;
