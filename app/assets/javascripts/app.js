@@ -66,6 +66,11 @@ angular.module('hobbyhound', ['ui.router', 'templates', 'Devise', 'ui.bootstrap'
 					return games.getAll($stateParams.user_id);
 				}]
 			}
+		})
+		.state('createGame', {
+			url: '/games/create',
+			templateUrl: 'games/_createGame.html',
+			controller: 'GameCtrl'
 		});
 	$urlRouterProvider.otherwise('home');
 }]);
