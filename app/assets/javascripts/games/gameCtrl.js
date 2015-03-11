@@ -16,7 +16,7 @@ angular.module('hobbyhound')
 	$scope.addGame = function() {
 		games.create({
 			name: $scope.name,
-			system: $scope.system,
+			system: $scope.system.value.toString(),
 			beaten: $scope.beaten,
 			playing: $scope.playing,
 			rating: $scope.rating,
