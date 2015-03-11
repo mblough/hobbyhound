@@ -38,17 +38,17 @@
 						<tbody>
 							<tr ng-repeat="game in games | orderBy: 'name'">
 								<td class="col-md-5">{{game.name}}</td>
-								<td class="col-md-1">{{game.system}}</td>
+								<td class="col-md-2">{{game.system}}</td>
 								<td class="col-md-1">
 									<span ng-show="game.beaten" class="glyphicon glyphicon-check"></span>
 									<span ng-hide="game.beaten" class="glyphicon glyphicon-unchecked"></span>
 								</td>
-								<td class="col-md-2">
+								<td class="col-md-1">
 									<rating ng-show="game.rating > 0" ng-model="game.rating" max="max" readonly="true"></rating>
 								</td>
 								<td class="col-md-1"><span ng-show="game.comment != null && game.comment != ''" class="glyphicon glyphicon-file"></span></td>
 								<td class="col-md-1"><a href="#/games/{{game.id}}/edit" class="btn btn-warning table-btn"><span class="glyphicon glyphicon-edit"></span></a></td>
-								<td class="col-md-1"><button class="btn btn-danger table-btn" ng-click="deleteGame(movie.id)"><span class="glyphicon glyphicon-trash"></span></button></td>
+								<td class="col-md-1"><button class="btn btn-danger table-btn" ng-click="deleteGame(game.id)"><span class="glyphicon glyphicon-trash"></span></button></td>
 							</tr>
 						</tbody>
 					</table>
