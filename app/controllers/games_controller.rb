@@ -22,7 +22,7 @@ class GamesController < ApplicationController
 	end
 
 	def update
-		Game.find(params[:id]).update.attributes(game_params)
+		Game.find(params[:id]).update_attributes(game_params)
 		render nothing: true, status: 204
 	end
 
