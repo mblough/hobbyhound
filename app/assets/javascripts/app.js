@@ -71,6 +71,17 @@ angular.module('hobbyhound', ['ui.router', 'templates', 'Devise', 'ui.bootstrap'
 			url: '/games/create',
 			templateUrl: 'games/_createGame.html',
 			controller: 'GameCtrl'
+		})
+		.state('editGame', {
+			url: '/games/{game_id}/edit',
+			templateUrl: 'games/_editGame.html',
+			controller: 'GameEditCtrl',
+			resolve: {
+				gamePromise: ['$stateParams', 'games', function($stateParams, games) {
+					return games.getEditGame($stateParams.game_id);
+				}]
+			}
 		});
+
 	$urlRouterProvider.otherwise('home');
 }]);
