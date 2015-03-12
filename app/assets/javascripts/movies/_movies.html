@@ -29,24 +29,21 @@
 								<th>Status</th>
 								<th>Rating</th>
 								<th></th> <!-- View comment/review -->
-								<th></th> <!-- Check -->
 								<th></th> <!-- Edit -->
 								<th></th> <!-- Delete -->
 							</tr>
 						</thead>
 						<tbody>
 							<tr ng-repeat="movie in movies | orderBy: 'name'">
-								<td class="col-md-5">{{movie.name}}</td>
+								<td class="col-md-6">{{movie.name}}</td>
 								<td class="col-md-1">
 									<span ng-show="movie.watched" class="glyphicon glyphicon-check"></span>
 									<span ng-hide="movie.watched" class="glyphicon glyphicon-unchecked"></span>
 								</td>
 								<td class="col-md-2">
-									<rating ng-show="movie.rating > 0" ng-model="movie.rating" max="max" readonly="true" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
-									<span ng-hide="movie.rating > 0"></span>
+									<rating ng-show="movie.rating > 0" ng-model="movie.rating" max="max" readonly="true"></rating>
 								</td>
 								<td class="col-md-1"><span ng-show="movie.comment != null && movie.comment != ''" class="glyphicon glyphicon-file"></span></td>
-								<td class="col-md-1"></td>
 								<td class="col-md-1"><a href="#/movies/{{movie.id}}/edit" class="btn btn-warning table-btn"><span class="glyphicon glyphicon-edit"></span></a></td>
 								<td class="col-md-1"><button class="btn btn-danger table-btn" ng-click="deleteMovie(movie.id)"><span class="glyphicon glyphicon-trash"></span></button></td>
 							</tr>
