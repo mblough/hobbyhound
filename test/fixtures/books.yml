@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  genre: MyString
+  read: false
+  currentpage: 1
+  totalpages: 1
+  reading: false
+  rating: 1
+  comment: MyString
+
+two:
+  name: MyString
+  genre: MyString
+  read: false
+  currentpage: 1
+  totalpages: 1
+  reading: false
+  rating: 1
+  comment: MyString

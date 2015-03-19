@@ -1,0 +1,68 @@
+<div ng-controller="BookCtrl">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="jumbotron">
+				<h1>{{profile.username}}'s Books</h1>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="well">
+				<div class="row library-header">
+					<div class="col-md-4">
+						<a href="#/books/create" class="btn btn-success">Add Book</a>
+					</div>
+					<div class="col-md-8">
+						<div class="btn-group btn-group-justified">
+							<a href="#" class="btn btn-primary">All</a>
+							<a href="#" class="btn btn-primary">Read</a>
+							<a href="#" class="btn btn-primary">Unread</a>
+							<a href="#" class="btn btn-primary">Reading</a>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<table class="table table-hover table-striped library-border">
+						<thead class="library-border">
+							<tr>
+								<th>Title</th>
+								<th>Genre</th>
+								<th>Status</th>
+								<th>Pages</th>
+								<th>Rating</th>
+								<th></th> <!-- View comment/review -->
+								<th></th> <!-- Edit -->
+								<th></th> <!-- Delete -->
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="book in books | orderBy: 'name'">
+								<td class="col-md-5">{{book.name}}</td>
+								<td class="col-md-1">{{book.genre}}</td>
+								<td class="col-md-1">
+									<span ng-show="book.read" class="glyphicon glyphicon-check"></span>
+									<span ng-hide="book.read" class="glyphicon glyphicon-unchecked"></span>
+								</td>
+								<td class="col-md-1">{{book.currentpage}}/{{book.totalpages}}</td>
+								<td class="col-md-1">
+									<rating ng-show="book.rating > 0" ng-model="book.rating" max="max" readonly="true"></rating>
+								</td>
+								<td class="col-md-1">
+									<span ng-show="book.comment != null && book.comment != ''" class="glyphicon glyphicon-file"></span>
+								</td>
+								<td class="col-md-1">
+									<a href="#/books/{{book.id}}/edit" class="btn btn-warning table-btn"><span class="glyphicon glyphicon-edit"></span></a>
+								</td>
+								<td class="col-md-1">
+									<button class="btn btn-danger table-btn" ng-click="deleteBook(book.id)"><span class="glyphicon glyphicon-trash"></span></button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<span ng-hide="books.length > 0"><i>No books to display</i></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
