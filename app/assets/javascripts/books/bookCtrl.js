@@ -3,7 +3,7 @@ angular.module('hobbyhound')
 	$scope.profile = users.prof;
 
 	$scope.books = books.books;
-	$scope.genreList = games.genreList;
+	$scope.genreList = books.genreList;
 
 	$scope.rating = 0;
 	$scope.max = 5;
