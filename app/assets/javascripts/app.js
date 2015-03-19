@@ -81,6 +81,34 @@ angular.module('hobbyhound', ['ui.router', 'templates', 'Devise', 'ui.bootstrap'
 					return games.getEditGame($stateParams.game_id);
 				}]
 			}
+		})
+		.state('books', {
+			url: '/users/{user_id}/books',
+			templateUrl: 'books/_books.html',
+			controller: 'BookCtrl',
+			resolve: {
+				profilePromise: ['$stateParams', 'users', function($stateParams, users) {
+					return users.get($stateParams.user_id);
+				}],
+				postPromise: ['$stateParams', 'books', function($stateParams, books) {
+					return books.getAll($stateParams.user_id);
+				}]
+			}
+		})
+		.state('createBook', {
+			url: '/books/create',
+			templateUrl: 'books/_createBook.html',
+			controller: 'BookCtrl'
+		})
+		.state('editBook', {
+			url: '/books/{book_id}/edit',
+			templateUrl: 'books/_editBook.html',
+			controller: 'BookEditCtrl',
+			resolve: {
+				bookPromise: ['$stateParams', 'books', function($stateParams, books) {
+					return books.getEditBook($stateParams.book_id);
+				}]
+			}
 		});
 
 	$urlRouterProvider.otherwise('home');
