@@ -1,0 +1,70 @@
+<div class="col-md-6 col-md-offset-3">
+	<div class="well">
+		<form class="form-horizontal" ng-submit="updateBook()">
+			<fieldset>
+				<legend>Update Book</legend>
+				<div class="form-group">
+					<label for="Name" class="col-md-2 control-label">Title</label>
+					<div class="col-md-10">
+						<input class="form-control" type="text" ng-model="bookToEdit.name" value={{bookToEdit.name}}>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="Genre" class="col-md-2 control-label">Genre</label>
+					<div class="col-md-10">
+						<select class="form-control" ng-model="genreChoice"
+							ng-options="gen.value for gen in genreList track by gen.label">
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-offset-2 col-md-10">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" ng-model="bookToEdit.reading" value={{bookToEdit.reading}}> Reading
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-offset-2 col-md-10">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" ng-model="bookToEdit.read" value={{bookToEdit.read}}> Read
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="CurrentPage" class="col-md-3 control-label">Pages Read</label>
+					<div class="col-md-4">
+						<input class="form-control" type="number" ng-model="bookToEdit.currentpage" value={{bookToEdit.currentpage}}> 
+					</div>
+					<label for="TotalPages" class="col-md-1 control-label"> / </label>
+					<div class="col-md-4">
+						<input class="form-control" type="number" ng-model="bookToEdit.totalpages" value={{bookToEdit.totalpages}}>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="Rating" class="col-md-2 control-label">Rating</label>
+					<div class="form-rating col-md-10">
+						<rating ng-model="bookToEdit.rating" max="max" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
+						<span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar">{{percent}}%</span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="Comment" class="col-md-2 control-label">Comment</label>
+					<div class="col-md-10">
+						<input class="form-control" type="text" placeholder="comment" ng-model="bookToEdit.comment" value={{bookToEdit.comment}}>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-10 col-md-offset-2">
+						<button type="submit" class="btn btn-success">Finish</button>
+						<a href="#/users/{{thisUser.id}}/books" class="btn btn-danger">Cancel</a>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</div>
