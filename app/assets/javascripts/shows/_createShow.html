@@ -1,0 +1,73 @@
+<div class="col-md-6 col-md-offset-3">
+	<div class="well">
+		<form class="form-horizontal" ng-submit="addShow()">
+			<fieldset>
+				<legend>Add Show</legend>
+				<div class="form-group">
+					<label for="Name" class="col-md-2 control-label">Title</label>
+					<div class="col-md-10">
+						<input class="form-control" type="text" ng-model="name">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="Genre" class="col-md-2 control-label">Type</label>
+					<div class="col-md-10">
+						<label class="radio-inline">
+  						<input type="radio" ng-model="type" value="anime"> Anime
+						</label>
+						<label class="radio-inline">
+  						<input type="radio" ng-model="type" value="tv"> TV Show
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-offset-2 col-md-10">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" ng-model="watching"> Watching
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-offset-2 col-md-10">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" ng-model="finished"> Finished
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="CurrentEpisode" class="col-md-3 control-label">Eps. Watched</label>
+					<div class="col-md-4">
+						<input class="form-control" type="number" ng-model="currentepisode"> 
+					</div>
+					<label for="TotalEpisodes" class="col-md-1 control-label"> / </label>
+					<div class="col-md-4">
+						<input class="form-control" type="number" ng-model="totalepisodes">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="Rating" class="col-md-2 control-label">Rating</label>
+					<div class="form-rating col-md-10">
+						<rating ng-model="rating" max="max" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
+						<span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar">{{percent}}%</span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="Comment" class="col-md-2 control-label">Comment</label>
+					<div class="col-md-10">
+						<input class="form-control" type="text" placeholder="comment" ng-model="comment">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-10 col-md-offset-2">
+						<button type="submit" class="btn btn-success">Add Show</button>
+						<a href="#/users/{{profile.id}}/shows" class="btn btn-danger">Cancel</a>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</div>

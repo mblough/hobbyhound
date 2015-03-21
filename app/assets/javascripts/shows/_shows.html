@@ -16,8 +16,8 @@
 					<div class="col-md-8">
 						<div class="btn-group btn-group-justified">
 							<a href="#" class="btn btn-primary">All</a>
-							<a href="#" class="btn btn-primary">Watched</a>
-							<a href="#" class="btn btn-primary">Not Watched</a>
+							<a href="#" class="btn btn-primary">Finished</a>
+							<a href="#" class="btn btn-primary">Unfinished</a>
 							<a href="#" class="btn btn-primary">Watching</a>
 						</div>
 					</div>
@@ -41,8 +41,8 @@
 								<td class="col-md-5">{{show.name}}</td>
 								<td class="col-md-1">{{show.type}}</td>
 								<td class="col-md-1">
-									<span ng-show="show.watched" class="glyphicon glyphicon-check"></span>
-									<span ng-hide="show.watched" class="glyphicon glyphicon-unchecked"></span>
+									<span ng-show="show.finished" class="glyphicon glyphicon-check"></span>
+									<span ng-hide="show.finished" class="glyphicon glyphicon-unchecked"></span>
 								</td>
 								<td class="col-md-1">{{show.currentepisode}}/{{show.totalepisodes}}</td>
 								<td class="col-md-1">
