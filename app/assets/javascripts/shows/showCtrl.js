@@ -15,7 +15,7 @@ angular.module('hobbyhound')
 	$scope.addShow = function() {
 		shows.create({
 			name: $scope.name,
-			type: $scope.type,
+			showtype: $scope.showtype,
 			finished: $scope.finished,
 			currentepisode: $scope.currentepisode,
 			totalepisodes: $scope.totalepisodes,
