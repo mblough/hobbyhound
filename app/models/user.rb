@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   has_many :movies
   has_many :games
   has_many :books
+  has_many :shows
 end
