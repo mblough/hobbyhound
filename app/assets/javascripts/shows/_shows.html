@@ -39,7 +39,7 @@
 						<tbody>
 							<tr ng-repeat="show in shows | orderBy: 'name'">
 								<td class="col-md-5">{{show.name}}</td>
-								<td class="col-md-1">{{show.type}}</td>
+								<td class="col-md-1">{{show.showtype}}</td>
 								<td class="col-md-1">
 									<span ng-show="show.finished" class="glyphicon glyphicon-check"></span>
 									<span ng-hide="show.finished" class="glyphicon glyphicon-unchecked"></span>
@@ -55,12 +55,12 @@
 									<a href="#/shows/{{show.id}}/edit" class="btn btn-warning table-btn"><span class="glyphicon glyphicon-edit"></span></a>
 								</td>
 								<td class="col-md-1">
-									<button class="btn btn-danger table-btn" ng-click="deleteBook(book.id)"><span class="glyphicon glyphicon-trash"></span></button>
+									<button class="btn btn-danger table-btn" ng-click="deleteShow(show.id)"><span class="glyphicon glyphicon-trash"></span></button>
 								</td>
 							</tr>
 						</tbody>
 					</table>
-					<span ng-hide="books.length > 0"><i>No shows to display</i></span>
+					<span ng-hide="shows.length > 0"><i>No shows to display</i></span>
 				</div>
 			</div>
 		</div>
