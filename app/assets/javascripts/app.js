@@ -26,6 +26,16 @@ angular.module('hobbyhound', ['ui.router', 'templates', 'Devise', 'ui.bootstrap'
 				})
 			}]
 		})
+		.state('dashboard', {
+			url: '/users/{user_id}/dashboard',
+			templateUrl: 'dashboard/_dashboard.html',
+			controller: 'DashboardCtrl',
+			resolve: {
+				profilePromise: ['$stateParams', 'users', function($stateParams, users) {
+					return users.get($stateParams.user_id);
+				}]
+			}
+		})
 		.state('movies', {
 			url: '/users/{user_id}/movies',
 			templateUrl: 'movies/_movies.html',
