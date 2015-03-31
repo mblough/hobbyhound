@@ -14,7 +14,7 @@
 				<li class="dropdown" dropdown on-toggle="toggled(open)" ng-show="signedIn()">
 					<a href class="dropdown-toggle" dropdown-toggle role="button" aria-expanded="false">Dashboard<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">My Dashboard</a></li>
+						<li><a href="#/users/{{user.id}}/dashboard">My Dashboard</a></li>
 						<li class="divider"></li>
 						<li><a href="#/users/{{user.id}}/books">Books</a></li>
 						<li class="divider"></li>
