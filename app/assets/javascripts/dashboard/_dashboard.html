@@ -1,0 +1,32 @@
+<div ng-controller="DashboardCtrl">	
+	<div class="row">
+		<div class="col-md-12">
+			<div class="jumbotron">
+				<h1>{{profile.username}}'s Dashboard</h1>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-9">
+			<div class="well">
+				<h2><u>Progress</u></h2>
+				<div>
+					<h4><a href="#/users/{{profile.id}}/books">Books</a> <span class="label label-primary">{{bookProgress.complete}}/{{bookProgress.total}}</span></h4>
+					<progressbar max="bookProgress.total" value="bookProgress.complete" type="{{findProgressType(bookProgress)}}" tooltip={{bookProgress.complete}}/{{bookProgress.total}}></progressbar>
+				</div>
+				<div>
+					<h4><a href="#/users/{{profile.id}}/games">Games</a> <span class="label label-primary">{{gameProgress.complete}}/{{gameProgress.total}}</span></h4>
+					<progressbar max="gameProgress.total" value="gameProgress.complete" type="{{findProgressType(gameProgress)}}" tooltip={{gameProgress.complete}}/{{gameProgress.total}}></progressbar>
+				</div>
+				<div>
+					<h4><a href="#/users/{{profile.id}}/movies">Movies</a> <span class="label label-primary">{{movieProgress.complete}}/{{movieProgress.total}}</span></h4>
+					<progressbar max="movieProgress.total" value="movieProgress.complete" type="{{findProgressType(movieProgress)}}" tooltip={{movieProgress.complete}}/{{movieProgress.total}}></progressbar>
+				</div>
+				<div>
+					<h4><a href="#/users/{{profile.id}}/shows">Shows</a> <span class="label label-primary">{{showProgress.complete}}/{{showProgress.total}}</span></h4>
+					<progressbar max="showProgress.total" value="showProgress.complete" type="{{findProgressType(showProgress)}}" tooltip={{showProgress.complete}}/{{showProgress.total}}></progressbar>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
