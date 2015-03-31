@@ -33,6 +33,9 @@ angular.module('hobbyhound', ['ui.router', 'templates', 'Devise', 'ui.bootstrap'
 			resolve: {
 				profilePromise: ['$stateParams', 'users', function($stateParams, users) {
 					return users.get($stateParams.user_id);
+				}],
+				progPromise: ['$stateParams', 'dashboard', function($stateParams, dashboard) {
+					return dashboard.getAll($stateParams.user_id);
 				}]
 			}
 		})
