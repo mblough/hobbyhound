@@ -1,12 +1,18 @@
 angular.module('hobbyhound')
-.controller('BookCtrl', ['$scope', 'users', 'books', '$modal', '$location', function($scope, users, books, $modal, $location) {
+.controller('BookCtrl', ['$scope', 'users', 'books', '$modal', '$location', 'dashboard', function($scope, users, books, $modal, $location, dashboard) {
 	$scope.profile = users.prof;
 
 	$scope.books = books.books;
 	$scope.genreList = books.genreList;
 
+	$scope.bookProgress = dashboard.bookProgress;
+
 	$scope.rating = 0;
 	$scope.max = 5;
+
+	$scope.findProgressType = function(progress) {
+		return dashboard.findProgressType(progress);
+	}
 
 	$scope.hoveringOver = function(value) {
 		$scope.overStar = value;
