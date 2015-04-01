@@ -8,24 +8,88 @@
 	</div>
 	<div class="row">
 		<div class="col-md-9">
-			<div class="well">
-				<h2><u>Progress</u></h2>
-				<div>
-					<h4><a href="#/users/{{profile.id}}/books">Books</a> <span class="label label-primary">{{bookProgress.complete}}/{{bookProgress.total}}</span></h4>
-					<progressbar max="bookProgress.total" value="bookProgress.complete" type="{{findProgressType(bookProgress)}}" tooltip={{bookProgress.complete}}/{{bookProgress.total}}></progressbar>
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h1 class="panel-title">Progress</h1>
 				</div>
-				<div>
-					<h4><a href="#/users/{{profile.id}}/games">Games</a> <span class="label label-primary">{{gameProgress.complete}}/{{gameProgress.total}}</span></h4>
-					<progressbar max="gameProgress.total" value="gameProgress.complete" type="{{findProgressType(gameProgress)}}" tooltip={{gameProgress.complete}}/{{gameProgress.total}}></progressbar>
+				<div class="list-group panel-content">
+					<a href="#/users/{{profile.id}}/books" class="list-group-item">
+						<h4>Books <span class="label label-primary">{{bookProgress.complete}}/{{bookProgress.total}}</span></h4>
+						<progressbar max="bookProgress.total" value="bookProgress.complete" type="{{findProgressType(bookProgress)}}" tooltip={{bookProgress.complete}}/{{bookProgress.total}}></progressbar>
+					</a>
+					<a href="#/users/{{profile.id}}/games" class="list-group-item">
+						<h4>Games <span class="label label-primary">{{gameProgress.complete}}/{{gameProgress.total}}</span></h4>
+						<progressbar max="gameProgress.total" value="gameProgress.complete" type="{{findProgressType(gameProgress)}}" tooltip={{gameProgress.complete}}/{{gameProgress.total}}></progressbar>
+					</a>
+					<a href="#/users/{{profile.id}}/movies" class="list-group-item">
+						<h4>Movies <span class="label label-primary">{{movieProgress.complete}}/{{movieProgress.total}}</span></h4>
+						<progressbar max="movieProgress.total" value="movieProgress.complete" type="{{findProgressType(movieProgress)}}" tooltip={{movieProgress.complete}}/{{movieProgress.total}}></progressbar>
+					</a>
+					<a href="#/users/{{profile.id}}/shows" class="list-group-item">
+						<h4>Shows <span class="label label-primary">{{showProgress.complete}}/{{showProgress.total}}</span></h4>
+						<progressbar max="showProgress.total" value="showProgress.complete" type="{{findProgressType(showProgress)}}" tooltip={{showProgress.complete}}/{{showProgress.total}}></progressbar>
+					</a>
 				</div>
-				<div>
-					<h4><a href="#/users/{{profile.id}}/movies">Movies</a> <span class="label label-primary">{{movieProgress.complete}}/{{movieProgress.total}}</span></h4>
-					<progressbar max="movieProgress.total" value="movieProgress.complete" type="{{findProgressType(movieProgress)}}" tooltip={{movieProgress.complete}}/{{movieProgress.total}}></progressbar>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Following List</h3>
 				</div>
-				<div>
-					<h4><a href="#/users/{{profile.id}}/shows">Shows</a> <span class="label label-primary">{{showProgress.complete}}/{{showProgress.total}}</span></h4>
-					<progressbar max="showProgress.total" value="showProgress.complete" type="{{findProgressType(showProgress)}}" tooltip={{showProgress.complete}}/{{showProgress.total}}></progressbar>
+				<div class="list-group panel-content">
+					<a href="#" class="list-group-item">
+						Following 1
+					</a>
+					<a href="#" class="list-group-item">
+						Following 2
+					</a>
+					<a href="#" class="list-group-item">
+						Following 3
+					</a>
+					<a href="#" class="list-group-item">
+						Following 4
+					</a>
+					<a href="#" class="list-group-item">
+						Following 5
+					</a>
+					<a href="#" class="list-group-item">
+						Following 6
+					</a>
+					<a href="#" class="list-group-item">
+						Following 7
+					</a>
+					<a href="#" class="list-group-item">
+						Following 8
+					</a>
+					<a href="#" class="list-group-item">
+						Following 9
+					</a>
 				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-9">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Comments</h3>
+				</div>
+				<div class="list-group panel-content">
+					<div class="list-group-item">
+						<h5 class="list-group-item-heading"><i><a href="#">Author Name</a></i></h5>
+						<p class="list-group-item-content">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">Post Comment</h3>
+			</div>
+			<div class="list-group panel-content">
+				TODO
 			</div>
 		</div>
 	</div>
