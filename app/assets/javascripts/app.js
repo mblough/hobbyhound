@@ -77,6 +77,9 @@ angular.module('hobbyhound', ['ui.router', 'templates', 'Devise', 'ui.bootstrap'
 				}],
 				postPromise: ['$stateParams', 'games', function($stateParams, games) {
 					return games.getAll($stateParams.user_id);
+				}],
+				progPromise: ['$stateParams', 'dashboard', function($stateParams, dashboard) {
+					return dashboard.getGameProgress($stateParams.user_id);
 				}]
 			}
 		})
@@ -105,6 +108,9 @@ angular.module('hobbyhound', ['ui.router', 'templates', 'Devise', 'ui.bootstrap'
 				}],
 				postPromise: ['$stateParams', 'books', function($stateParams, books) {
 					return books.getAll($stateParams.user_id);
+				}],
+				progPromise: ['$stateParams', 'dashboard', function($stateParams, dashboard) {
+					return dashboard.getBookProgress($stateParams.user_id);
 				}]
 			}
 		})
