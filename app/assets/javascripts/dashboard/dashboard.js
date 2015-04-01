@@ -39,5 +39,21 @@ angular.module('hobbyhound')
 		return dash;
 	};
 
+	dash.findProgressType = function(progress) {
+		percentage = (progress.complete / progress.total) * 100;
+		if(percentage > 75) {
+			return "success";
+		}
+		else if(percentage > 50) {
+			return "info";
+		}
+		else if(percentage > 25) {
+			return "warning";
+		}
+		else {
+			return "danger";
+		}
+	};
+
 	return dash;
 }]);
