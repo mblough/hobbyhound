@@ -49,6 +49,9 @@ angular.module('hobbyhound', ['ui.router', 'templates', 'Devise', 'ui.bootstrap'
 				}],
 				postPromise: ['$stateParams', 'movies', function($stateParams, movies) {
 					return movies.getAll($stateParams.user_id);
+				}],
+				progPromise: ['$stateParams', 'dashboard', function($stateParams, dashboard) {
+					return dashboard.getMovieProgress($stateParams.user_id);
 				}]
 			}
 		})
