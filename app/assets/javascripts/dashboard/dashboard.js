@@ -13,6 +13,13 @@ angular.module('hobbyhound')
 		});
 	};
 
+	dash.getBookProgress2 = function(userid) {
+		$http.get('/users/' + userid + '/books/progress.json').success(function(data) {
+			angular.copy(data, dash.bookProgress);
+		});
+		return dash.bookProgress;
+	}
+
 	dash.getGameProgress = function(userid) {
 		return $http.get('/users/' + userid + '/games/progress.json').success(function(data) {
 			angular.copy(data, dash.gameProgress);
