@@ -15,7 +15,7 @@
 				<div class="list-group panel-content">
 					<div class="list-group-item">
 						<h4>Shows <span class="label label-primary">{{showProgress.complete}}/{{showProgress.total}}</span></h4>
-						<progressbar max="showProgress.total" value="showProgress.complete" type="{{findProgressType(showProgress)}}" tooltip={{showProgress.complete}}/{{showProgress.total}}></progressbar>
+						<progressbar max="100" value="(showProgress.complete * 100 / showProgress.total)" type="{{findProgressType(showProgress)}}" tooltip={{showProgress.complete}}/{{showProgress.total}}></progressbar>
 					</div>
 				</div>
 			</div>

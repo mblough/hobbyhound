@@ -15,19 +15,19 @@
 				<div class="list-group panel-content">
 					<a href="#/users/{{profile.id}}/books" class="list-group-item">
 						<h4>Books <span class="label label-primary">{{bookProgress.complete}}/{{bookProgress.total}}</span></h4>
-						<progressbar max="bookProgress.total" value="bookProgress.complete" type="{{findProgressType(bookProgress)}}" tooltip={{bookProgress.complete}}/{{bookProgress.total}}></progressbar>
+						<progressbar max="100" value="(bookProgress.complete * 100 / bookProgress.total)" type="{{findProgressType(bookProgress)}}" tooltip={{bookProgress.complete}}/{{bookProgress.total}}></progressbar>
 					</a>
 					<a href="#/users/{{profile.id}}/games" class="list-group-item">
 						<h4>Games <span class="label label-primary">{{gameProgress.complete}}/{{gameProgress.total}}</span></h4>
-						<progressbar max="gameProgress.total" value="gameProgress.complete" type="{{findProgressType(gameProgress)}}" tooltip={{gameProgress.complete}}/{{gameProgress.total}}></progressbar>
+						<progressbar max="100" value="(gameProgress.complete * 100 / gameProgress.total)" type="{{findProgressType(gameProgress)}}" tooltip={{gameProgress.complete}}/{{gameProgress.total}}></progressbar>
 					</a>
 					<a href="#/users/{{profile.id}}/movies" class="list-group-item">
 						<h4>Movies <span class="label label-primary">{{movieProgress.complete}}/{{movieProgress.total}}</span></h4>
-						<progressbar max="movieProgress.total" value="movieProgress.complete" type="{{findProgressType(movieProgress)}}" tooltip={{movieProgress.complete}}/{{movieProgress.total}}></progressbar>
+						<progressbar max="100" value="(movieProgress.complete * 100 / movieProgress.total)" type="{{findProgressType(movieProgress)}}" tooltip={{movieProgress.complete}}/{{movieProgress.total}}></progressbar>
 					</a>
 					<a href="#/users/{{profile.id}}/shows" class="list-group-item">
 						<h4>Shows <span class="label label-primary">{{showProgress.complete}}/{{showProgress.total}}</span></h4>
-						<progressbar max="showProgress.total" value="showProgress.complete" type="{{findProgressType(showProgress)}}" tooltip={{showProgress.complete}}/{{showProgress.total}}></progressbar>
+						<progressbar max="100" value="(showProgress.complete * 100 / showProgress.total)" type="{{findProgressType(showProgress)}}" tooltip={{showProgress.complete}}/{{showProgress.total}}></progressbar>
 					</a>
 				</div>
 			</div>
