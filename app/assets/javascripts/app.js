@@ -142,6 +142,9 @@ angular.module('hobbyhound', ['ui.router', 'templates', 'Devise', 'ui.bootstrap'
 				}],
 				postPromise: ['$stateParams', 'shows', function($stateParams, shows) {
 					return shows.getAll($stateParams.user_id);
+				}],
+				progPromise: ['$stateParams', 'dashboard', function($stateParams, dashboard) {
+					return dashboard.getShowProgress($stateParams.user_id);
 				}]
 			}
 		})
