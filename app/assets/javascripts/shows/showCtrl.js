@@ -1,8 +1,10 @@
 angular.module('hobbyhound')
-.controller('ShowCtrl', ['$scope', 'users', 'shows', '$modal', '$location', function($scope, users, shows, $modal, $location) {
+.controller('ShowCtrl', ['$scope', 'users', 'shows', '$modal', '$location', 'dashboard', function($scope, users, shows, $modal, $location, dashboard) {
 	$scope.profile = users.prof;
 
 	$scope.shows = shows.shows;
+
+	$scope.showProgress = dashboard.showProgress;
 	
 	$scope.rating = 0;
 	$scope.max = 5;
@@ -34,5 +36,9 @@ angular.module('hobbyhound')
 				}
 			}
 		});
+	};
+
+	$scope.findProgressType = function(progress) {
+		return dashboard.findProgressType(progress);
 	};
 }]);

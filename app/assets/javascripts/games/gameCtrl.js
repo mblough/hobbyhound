@@ -1,12 +1,18 @@
 angular.module('hobbyhound')
-.controller('GameCtrl', ['$scope', 'users', 'games', '$modal', '$location', function($scope, users, games, $modal, $location) {
+.controller('GameCtrl', ['$scope', 'users', 'games', '$modal', '$location', 'dashboard', function($scope, users, games, $modal, $location, dashboard) {
 	$scope.profile = users.prof;
 
 	$scope.games = games.games;
 	$scope.systemList = games.systemList;
 
+	$scope.gameProgress = dashboard.gameProgress;
+
 	$scope.rating = 0;
 	$scope.max = 5;
+
+	$scope.findProgressType = function(progress) {
+		return dashboard.findProgressType(progress);
+	};
 
 	$scope.hoveringOver = function(value) {
 		$scope.overStar = value;

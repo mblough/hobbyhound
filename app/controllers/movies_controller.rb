@@ -3,6 +3,10 @@ class MoviesController < ApplicationController
 
 	respond_to :json
 
+	class MovieProgress
+		attr_accessor :total, :complete
+	end
+
 	def index
 		@user = User.find(params[:user_id])
 		@movies = @user.movies
@@ -29,6 +33,15 @@ class MoviesController < ApplicationController
 	def destroy
 		Movie.find(params[:id]).destroy
 		render nothing: true, status: 204
+	end
+
+	def progress
+		@user = User.find(params[:id])
+		@movies = @user.movies
+		@progress = MovieProgress.new
+		@progress.total = @movies.count
+		@progress.complete = @movies.where(watched: true).count
+		respond_with @progress
 	end
 
 	def as_json(options = {})

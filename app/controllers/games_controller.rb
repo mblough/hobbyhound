@@ -3,6 +3,10 @@ class GamesController < ApplicationController
 	
 	respond_to :json
 
+	class GameProgress
+		attr_accessor :total, :complete
+	end
+
 	def index
 		@user = User.find(params[:user_id])
 		@games = @user.games
@@ -29,6 +33,15 @@ class GamesController < ApplicationController
 	def destroy
 		Game.find(params[:id]).destroy
 		render nothing: true, status: 204
+	end
+
+	def progress
+		@user = User.find(params[:id])
+		@games = @user.games
+		@progress = GameProgress.new
+		@progress.total = @games.count
+		@progress.complete = @games.where(beaten: true).count
+		respond_with @progress
 	end
 
 	def as_json(options = {})

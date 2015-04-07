@@ -26,6 +26,19 @@ angular.module('hobbyhound', ['ui.router', 'templates', 'Devise', 'ui.bootstrap'
 				})
 			}]
 		})
+		.state('dashboard', {
+			url: '/users/{user_id}/dashboard',
+			templateUrl: 'dashboard/_dashboard.html',
+			controller: 'DashboardCtrl',
+			resolve: {
+				profilePromise: ['$stateParams', 'users', function($stateParams, users) {
+					return users.get($stateParams.user_id);
+				}],
+				progPromise: ['$stateParams', 'dashboard', function($stateParams, dashboard) {
+					return dashboard.getAll($stateParams.user_id);
+				}]
+			}
+		})
 		.state('movies', {
 			url: '/users/{user_id}/movies',
 			templateUrl: 'movies/_movies.html',
@@ -36,6 +49,9 @@ angular.module('hobbyhound', ['ui.router', 'templates', 'Devise', 'ui.bootstrap'
 				}],
 				postPromise: ['$stateParams', 'movies', function($stateParams, movies) {
 					return movies.getAll($stateParams.user_id);
+				}],
+				progPromise: ['$stateParams', 'dashboard', function($stateParams, dashboard) {
+					return dashboard.getMovieProgress($stateParams.user_id);
 				}]
 			}
 		})
@@ -64,6 +80,9 @@ angular.module('hobbyhound', ['ui.router', 'templates', 'Devise', 'ui.bootstrap'
 				}],
 				postPromise: ['$stateParams', 'games', function($stateParams, games) {
 					return games.getAll($stateParams.user_id);
+				}],
+				progPromise: ['$stateParams', 'dashboard', function($stateParams, dashboard) {
+					return dashboard.getGameProgress($stateParams.user_id);
 				}]
 			}
 		})
@@ -92,6 +111,9 @@ angular.module('hobbyhound', ['ui.router', 'templates', 'Devise', 'ui.bootstrap'
 				}],
 				postPromise: ['$stateParams', 'books', function($stateParams, books) {
 					return books.getAll($stateParams.user_id);
+				}],
+				progPromise: ['$stateParams', 'dashboard', function($stateParams, dashboard) {
+					return dashboard.getBookProgress($stateParams.user_id);
 				}]
 			}
 		})
@@ -120,6 +142,9 @@ angular.module('hobbyhound', ['ui.router', 'templates', 'Devise', 'ui.bootstrap'
 				}],
 				postPromise: ['$stateParams', 'shows', function($stateParams, shows) {
 					return shows.getAll($stateParams.user_id);
+				}],
+				progPromise: ['$stateParams', 'dashboard', function($stateParams, dashboard) {
+					return dashboard.getShowProgress($stateParams.user_id);
 				}]
 			}
 		})

@@ -3,6 +3,10 @@ class ShowsController < ApplicationController
 	
 	respond_to :json
 
+	class ShowProgress
+		attr_accessor :total, :complete
+	end
+
 	def index
 		@user = User.find(params[:user_id])
 		@shows = @user.shows
@@ -29,6 +33,15 @@ class ShowsController < ApplicationController
 	def destroy
 		Show.find(params[:id]).destroy
 		render nothing: true, status: 204
+	end
+
+	def progress
+		@user = User.find(params[:id])
+		@shows = @user.shows
+		@progress = ShowProgress.new
+		@progress.total = @shows.count
+		@progress.complete = @shows.where(finished: true).count
+		respond_with @progress
 	end
 
 	def as_json(options = {})

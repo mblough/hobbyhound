@@ -3,18 +3,15 @@ Rails.application.routes.draw do
   root to: 'application#angular'
 
   resources :users do
+    member do
+      get '/books/progress' => 'books#progress'
+      get '/shows/progress' => 'shows#progress'
+      get '/games/progress' => 'games#progress'
+      get '/movies/progress' => 'movies#progress'
+    end
     resources :movies, shallow: true
-  end
-
-  resources :users do
     resources :games, shallow: true
-  end
-
-  resources :users do
     resources :books, shallow: true
-  end
-
-  resources :users do
     resources :shows, shallow: true
   end
 

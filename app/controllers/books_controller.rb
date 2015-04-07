@@ -3,6 +3,10 @@ class BooksController < ApplicationController
 	
 	respond_to :json
 
+	class BookProgress
+		attr_accessor :total, :complete
+	end
+
 	def index
 		@user = User.find(params[:user_id])
 		@books = @user.books
@@ -29,6 +33,15 @@ class BooksController < ApplicationController
 	def destroy
 		Book.find(params[:id]).destroy
 		render nothing: true, status: 204
+	end
+
+	def progress
+		@user = User.find(params[:id])
+		@books = @user.books
+		@progress = BookProgress.new
+		@progress.total = @books.count
+		@progress.complete = @books.where(read: true).count
+		respond_with @progress
 	end
 
 	def as_json(options = {})

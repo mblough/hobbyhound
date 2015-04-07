@@ -8,6 +8,21 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h1 class="panel-title">Progress</h1>
+				</div>
+				<div class="list-group panel-content">
+					<div class="list-group-item">
+						<h4>Books <span class="label label-primary">{{bookProgress.complete}}/{{bookProgress.total}}</span></h4>
+						<progressbar max="100" value="(bookProgress.complete * 100 / bookProgress.total)" type="{{findProgressType(bookProgress)}}" tooltip={{bookProgress.complete}}/{{bookProgress.total}}></progressbar>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
 			<div class="well">
 				<div class="row library-header">
 					<div class="col-md-4">
