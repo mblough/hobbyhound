@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :games, shallow: true
     resources :books, shallow: true
     resources :shows, shallow: true
+    resources :comments, shallow: true
   end
 
   resources :profiles, only: [:show]
