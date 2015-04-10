@@ -4,7 +4,8 @@ angular.module('hobbyhound')
 		gameProgress: {},
 		bookProgress: {},
 		showProgress: {},
-		movieProgress: {}
+		movieProgress: {},
+		comments: []
 	};
 
 	dash.getBookProgress = function(userid) {
@@ -43,18 +44,25 @@ angular.module('hobbyhound')
 		dash.getGameProgress(userid);
 		dash.getMovieProgress(userid);
 		dash.getShowProgress(userid);
+		dash.getComments(userid);
 		return dash;
+	};
+
+	dash.getComments = function(userid) {
+		return $http.get('/users/' + userid + '/comments.json').success(function(data) {
+			angular.copy(data, dash.comments);
+		});
 	};
 
 	dash.findProgressType = function(progress) {
 		percentage = (progress.complete / progress.total) * 100;
-		if(percentage > 75) {
+		if(percentage >= 75) {
 			return "success";
 		}
 		else if(percentage > 50) {
 			return "info";
 		}
-		else if(percentage > 25) {
+		else if(percentage >= 25) {
 			return "warning";
 		}
 		else {
@@ -62,5 +70,10 @@ angular.module('hobbyhound')
 		}
 	};
 
+	dash.createComment = function(comment, dashid) {
+		return $http.post('/users/' + dashid + '/comments.json', comment).success(function(data) {
+			dash.comments.push(data);
+		});
+	};
 	return dash;
 }]);
