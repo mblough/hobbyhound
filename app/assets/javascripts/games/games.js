@@ -4,6 +4,7 @@ angular.module('hobbyhound')
 		games: [],
 		gameToEdit: {},
 		systemList: [
+			{ label: 'PC', value: 'PC' },
 			{ label: 'NES', value: 'NES' },
 			{ label: 'SNES', value: 'SNES' },
 			{ label: 'Nintendo 64', value: 'Nintendo 64' },
