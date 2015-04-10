@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
   has_many :games
   has_many :books
   has_many :shows
+  has_many :comments
 end
