@@ -52,7 +52,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat="show in shows | orderBy: 'name'">
+							<tr ng-repeat="show in shows | orderBy: 'name'" ng-class="{info: show.watching}">
 								<td class="col-md-5">{{show.name}}</td>
 								<td class="col-md-1">{{show.showtype}}</td>
 								<td class="col-md-1">

@@ -52,7 +52,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat="book in books | orderBy: 'name'">
+							<tr ng-repeat="book in books | orderBy: 'name'" ng-class="{info: book.reading}">
 								<td class="col-md-5">{{book.name}}</td>
 								<td class="col-md-1">{{book.genre}}</td>
 								<td class="col-md-1">

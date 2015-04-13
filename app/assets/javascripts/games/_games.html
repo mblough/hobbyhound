@@ -51,7 +51,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat="game in games | orderBy: 'name'">
+							<tr ng-repeat="game in games | orderBy: 'name'" ng-class="{info: game.playing}">
 								<td class="col-md-5">{{game.name}}</td>
 								<td class="col-md-2">{{game.system}}</td>
 								<td class="col-md-1">
