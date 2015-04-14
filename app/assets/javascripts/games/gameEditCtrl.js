@@ -13,6 +13,9 @@ angular.module('hobbyhound')
 
 	Auth.currentUser().then(function(user) {
 		$scope.thisUser = user;
+		if($scope.thisUser.id != $scope.gameToEdit.user_id) {
+			$location.path("/users/" + thisUser.id + "/games");
+		}
 	});
 
 	$scope.hoveringOver = function(value) {
