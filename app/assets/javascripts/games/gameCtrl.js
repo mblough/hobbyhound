@@ -1,6 +1,7 @@
 angular.module('hobbyhound')
-.controller('GameCtrl', ['$scope', 'users', 'games', '$modal', '$location', 'dashboard', function($scope, users, games, $modal, $location, dashboard) {
+.controller('GameCtrl', ['$scope', 'users', 'games', '$modal', '$location', 'dashboard', 'Auth', function($scope, users, games, $modal, $location, dashboard, Auth) {
 	$scope.profile = users.prof;
+	$scope.isOwner = false;
 
 	$scope.allGames = games.games;
 	$scope.systemList = games.systemList;
@@ -11,6 +12,13 @@ angular.module('hobbyhound')
 	$scope.max = 5;
 
 	$scope.games = $scope.allGames;
+
+	Auth.currentUser().then(function(user) {
+		thisUser = user;
+		if(thisUser.id == $scope.profile.id) {
+			$scope.isOwner = true;
+		}
+	});
 
 	$scope.setFilter = function(filterType) {
 		$scope.games = [];

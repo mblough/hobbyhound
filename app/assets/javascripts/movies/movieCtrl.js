@@ -1,6 +1,7 @@
 angular.module('hobbyhound')
-.controller('MovieCtrl', ['$scope', 'users', 'movies', '$modal', '$location', 'dashboard', function($scope, users, movies, $modal, $location, dashboard) {
+.controller('MovieCtrl', ['$scope', 'users', 'movies', '$modal', '$location', 'dashboard', 'Auth', function($scope, users, movies, $modal, $location, dashboard, Auth) {
 	$scope.profile = users.prof;
+	$scope.isOwner = false;
 
 	$scope.allMovies = movies.movies;
 
@@ -10,6 +11,13 @@ angular.module('hobbyhound')
 	$scope.max = 5;
 
 	$scope.movies = $scope.allMovies;
+
+	Auth.currentUser().then(function(user) {
+		thisUser = user;
+		if(thisUser.id == $scope.profile.id) {
+			$scope.isOwner = true;
+		}
+	});
 
 	$scope.findProgressType = function(progress) {
 		return dashboard.findProgressType(progress);

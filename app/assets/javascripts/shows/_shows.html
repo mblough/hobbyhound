@@ -67,10 +67,10 @@
 									<span ng-show="show.comment != null && show.comment != ''" class="glyphicon glyphicon-file"></span>
 								</td>
 								<td class="col-md-1">
-									<a href="#/shows/{{show.id}}/edit" class="btn btn-warning table-btn"><span class="glyphicon glyphicon-edit"></span></a>
+									<a href="#/shows/{{show.id}}/edit" class="btn btn-warning table-btn" ng-show="isOwner"><span class="glyphicon glyphicon-edit"></span></a>
 								</td>
 								<td class="col-md-1">
-									<button class="btn btn-danger table-btn" ng-click="deleteShow(show.id)"><span class="glyphicon glyphicon-trash"></span></button>
+									<button class="btn btn-danger table-btn" ng-click="deleteShow(show.id)" ng-show="isOwner"><span class="glyphicon glyphicon-trash"></span></button>
 								</td>
 							</tr>
 						</tbody>

@@ -1,6 +1,7 @@
 angular.module('hobbyhound')
-.controller('ShowCtrl', ['$scope', 'users', 'shows', '$modal', '$location', 'dashboard', function($scope, users, shows, $modal, $location, dashboard) {
+.controller('ShowCtrl', ['$scope', 'users', 'shows', '$modal', '$location', 'dashboard', 'Auth', function($scope, users, shows, $modal, $location, dashboard, Auth) {
 	$scope.profile = users.prof;
+	$scope.isOwner = false;
 
 	$scope.allShows = shows.shows;
 
@@ -10,6 +11,13 @@ angular.module('hobbyhound')
 	$scope.max = 5;
 
 	$scope.shows = $scope.allShows;
+
+	Auth.currentUser().then(function(user) {
+		thisUser = user;
+		if(thisUser.id == $scope.profile.id) {
+			$scope.isOwner = true;
+		}
+	});
 
 	$scope.setFilter = function(filterType) {
 		$scope.shows = [];

@@ -26,7 +26,7 @@
 			<div class="well">
 				<div class="row library-header">
 					<div class="col-md-4">
-						<a href="#/games/create" class="btn btn-success">Add Game</a>
+						<a href="#/games/create" class="btn btn-success" ng-show="isOwner">Add Game</a>
 					</div>
 					<div class="col-md-8">
 						<div class="btn-group btn-group-justified">
@@ -64,8 +64,8 @@
 								<td class="col-md-1">
 									<span ng-show="game.comment != null && game.comment != ''" class="glyphicon glyphicon-file"></span>
 								</td>
-								<td class="col-md-1"><a href="#/games/{{game.id}}/edit" class="btn btn-warning table-btn"><span class="glyphicon glyphicon-edit"></span></a></td>
-								<td class="col-md-1"><button class="btn btn-danger table-btn" ng-click="deleteGame(game.id)"><span class="glyphicon glyphicon-trash"></span></button></td>
+								<td class="col-md-1"><a href="#/games/{{game.id}}/edit" class="btn btn-warning table-btn" ng-show="isOwner"><span class="glyphicon glyphicon-edit"></span></a></td>
+								<td class="col-md-1"><button class="btn btn-danger table-btn" ng-click="deleteGame(game.id)" ng-show="isOwner"><span class="glyphicon glyphicon-trash"></span></button></td>
 							</tr>
 						</tbody>
 					</table>

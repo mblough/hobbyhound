@@ -1,7 +1,7 @@
 angular.module('hobbyhound')
-.controller('BookCtrl', ['$scope', 'users', 'books', '$modal', '$location', 'dashboard', function($scope, users, books, $modal, $location, dashboard) {
+.controller('BookCtrl', ['$scope', 'users', 'books', '$modal', '$location', 'dashboard', 'Auth', function($scope, users, books, $modal, $location, dashboard, Auth) {
 	$scope.profile = users.prof;
-
+	$scope.isOwner = false;
 	$scope.allBooks = books.books;
 	$scope.genreList = books.genreList;
 
@@ -11,6 +11,13 @@ angular.module('hobbyhound')
 	$scope.max = 5;
 
 	$scope.books = $scope.allBooks;
+
+	Auth.currentUser().then(function(user) {
+		thisUser = user;
+		if(thisUser.id == $scope.profile.id) {
+			$scope.isOwner = true;
+		}
+	});
 
 	$scope.setFilter = function(filterType) {
 		$scope.books = [];
