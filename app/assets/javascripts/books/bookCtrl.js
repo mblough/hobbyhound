@@ -72,6 +72,12 @@ angular.module('hobbyhound')
 					break;
 				}
 			}
+			for (var m = 0; m < $scope.allBooks.length; m++) {
+				if ($scope.allBooks[m].id === bookid) {
+					$scope.allBooks.splice(m, 1);
+					break;
+				}
+			}
 		});
 	};
 }]);

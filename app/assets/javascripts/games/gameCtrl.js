@@ -70,6 +70,12 @@ angular.module('hobbyhound')
 					break;
 				}
 			}
+			for (var m = 0; m < $scope.allGames.length; m++) {
+				if ($scope.allGames[m].id === gameid) {
+					$scope.allGames.splice(m, 1);
+					break;
+				}
+			}
 		});
 	};
 }]);

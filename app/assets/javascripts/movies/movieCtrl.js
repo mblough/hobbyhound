@@ -60,6 +60,12 @@ angular.module('hobbyhound')
 					break;
 				}
 			}
+			for (var m = 0; m < $scope.allMovies.length; m++) {
+				if ($scope.allMovies[m].id === movieid) {
+					$scope.allMovies.splice(m, 1);
+					break;
+				}
+			}
 		});
 	};
 }]);
