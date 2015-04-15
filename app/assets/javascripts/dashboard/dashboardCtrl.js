@@ -6,9 +6,13 @@ angular.module('hobbyhound')
 	$scope.movieProgress = dashboard.movieProgress;
 	$scope.showProgress = dashboard.showProgress;
 	$scope.comments = dashboard.comments;
+	$scope.isAuthorized = false;
 
 	Auth.currentUser().then(function(user) {
 		thisUser = user;
+		if(thisUser != null) {
+			$scope.isAuthorized = true;
+		}
 	});
 
 	$scope.$apply;
