@@ -60,7 +60,7 @@
 								</td>
 								<td class="col-md-1"><span ng-show="movie.comment != null && movie.comment != ''" class="glyphicon glyphicon-file"></span></td>
 								<td class="col-md-1"><a href="#/movies/{{movie.id}}/edit" class="btn btn-warning table-btn" ng-show="isOwner"><span class="glyphicon glyphicon-edit"></span></a></td>
-								<td class="col-md-1"><button class="btn btn-danger table-btn" ng-click="deleteMovie(movie.id)" ng-show="isOwner"><span class="glyphicon glyphicon-trash"></span></button></td>
+								<td class="col-md-1"><button class="btn btn-danger table-btn" ng-click="deleteMovie(movie)" ng-show="isOwner"><span class="glyphicon glyphicon-trash"></span></button></td>
 							</tr>
 						</tbody> 
 					</table>

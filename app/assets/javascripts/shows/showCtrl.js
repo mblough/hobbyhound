@@ -67,21 +67,27 @@ angular.module('hobbyhound')
 		});
 	};
 
-	$scope.deleteShow = function(showid) {
-		shows.delete(showid).then(function() {
-			for (var i = 0; i < $scope.shows.length; i++) {
-				if ($scope.shows[i].id === showid) {
-					$scope.shows.splice(i, 1);
-					break;
-				}
+	$scope.deleteShow = function(show) {
+		if ($scope.isOwner) {
+			if (show.finished) {
+				$scope.showProgress.complete--;
 			}
-			for (var m = 0; m < $scope.allShows.length; m++) {
-				if ($scope.allShows[m].id === showid) {
-					$scope.allShows.splice(m, 1);
-					break;
+			$scope.showProgress.total--;
+			shows.delete(show.id).then(function() {
+				for (var i = 0; i < $scope.shows.length; i++) {
+					if ($scope.shows[i].id === show.id) {
+						$scope.shows.splice(i, 1);
+						break;
+					}
 				}
-			}
-		});
+				for (var m = 0; m < $scope.allShows.length; m++) {
+					if ($scope.allShows[m].id === show.id) {
+						$scope.allShows.splice(m, 1);
+						break;
+					}
+				}
+			});
+		}
 	};
 
 	$scope.findProgressType = function(progress) {

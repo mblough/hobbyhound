@@ -71,20 +71,26 @@ angular.module('hobbyhound')
 		});
 	};
 
-	$scope.deleteBook = function(bookid) {
-		books.delete(bookid).then(function() {
-			for (var i = 0; i < $scope.books.length; i++) {
-				if ($scope.books[i].id === bookid) {
-					$scope.books.splice(i, 1);
-					break;
-				}
+	$scope.deleteBook = function(book) {
+		if ($scope.isOwner) {
+			if(book.read) {
+				$scope.bookProgress.complete--;
 			}
-			for (var m = 0; m < $scope.allBooks.length; m++) {
-				if ($scope.allBooks[m].id === bookid) {
-					$scope.allBooks.splice(m, 1);
-					break;
+			$scope.bookProgress.total--;
+			books.delete(book.id).then(function() {
+				for (var i = 0; i < $scope.books.length; i++) {
+					if ($scope.books[i].id === book.id) {
+						$scope.books.splice(i, 1);
+						break;
+					}
 				}
-			}
-		});
+				for (var m = 0; m < $scope.allBooks.length; m++) {
+					if ($scope.allBooks[m].id === book.id) {
+						$scope.allBooks.splice(m, 1);
+						break;
+					}
+				}
+			});
+		}
 	};
 }]);

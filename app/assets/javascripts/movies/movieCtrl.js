@@ -28,6 +28,8 @@ angular.module('hobbyhound')
 		switch(filterType) {
 			case 'all':
 				$scope.movies = $scope.allMovies;
+				$scope.movieProgress.complete++;
+				$scope.movieProgress.total++;
 				break;
 			case 'watched':
 				for (var j = 0; j < $scope.allMovies.length; j++) {
@@ -60,20 +62,26 @@ angular.module('hobbyhound')
 		});
 	};
 
-	$scope.deleteMovie = function(movieid) {
-		movies.delete(movieid).then(function() {
-			for (var i = 0; i < $scope.movies.length; i++) {
-				if ($scope.movies[i].id === movieid) {
-					$scope.movies.splice(i, 1);
-					break;
-				}
+	$scope.deleteMovie = function(movie) {
+		if($scope.isOwner){
+			if (movie.watched){
+				$scope.movieProgress.complete--;
 			}
-			for (var m = 0; m < $scope.allMovies.length; m++) {
-				if ($scope.allMovies[m].id === movieid) {
-					$scope.allMovies.splice(m, 1);
-					break;
+			$scope.movieProgress.total--;
+			movies.delete(movie.id).then(function() {
+				for (var i = 0; i < $scope.movies.length; i++) {
+					if ($scope.movies[i].id === movie.id) {
+						$scope.movies.splice(i, 1);
+						break;
+					}
 				}
-			}
-		});
+				for (var m = 0; m < $scope.allMovies.length; m++) {
+					if ($scope.allMovies[m].id === movie.id) {
+						$scope.allMovies.splice(m, 1);
+						break;
+					}
+				}
+			});
+		}
 	};
 }]);
