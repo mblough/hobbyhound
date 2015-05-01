@@ -26,6 +26,11 @@ angular.module('hobbyhound', ['ui.router', 'templates', 'Devise', 'ui.bootstrap'
 				})
 			}]
 		})
+		.state('changePassword', {
+			url: '/users/change_password',
+			templateUrl: 'auth/_updatePassword.html',
+			controller: 'AuthCtrl'
+		})
 		.state('dashboard', {
 			url: '/users/{user_id}/dashboard',
 			templateUrl: 'dashboard/_dashboard.html',

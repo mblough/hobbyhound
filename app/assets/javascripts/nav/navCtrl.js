@@ -18,6 +18,10 @@ angular.module('hobbyhound')
 		$scope.user = {};
 	});
 
+	$scope.$on('devise:update-successfully', function(e, user) {
+		$scope.user = user;
+	});
+
 	$scope.status = {
 		isopen: false
 	};
